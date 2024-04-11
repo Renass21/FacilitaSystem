@@ -11,3 +11,4 @@ export class Usuario {
         this.id = randomUUID();
     }
 }
+
