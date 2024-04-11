@@ -1,12 +1,12 @@
 import { randomUUID } from "crypto";
 
-export class Usuario {
+export class Tafefa {
     public id: string;
 
     constructor(
-        public nome: string,
+        public titulo: string,
         public email: string,
-        public senha: string, 
+        public conteudo: string, 
     ){
         this.id = randomUUID();
     }
