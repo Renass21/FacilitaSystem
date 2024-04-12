@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import { repository } from "../database/prisma.repository";
+import { Tarefa } from "../models/tarefa.model";
 
 export class TarefasController {
     public async criarTarefa(req: Request , res: Response) {
          try {
-            const { id } = req.params;
             const { titulo,conteudo } = req.body;
             
             if(!titulo || !conteudo){
@@ -15,11 +15,10 @@ export class TarefasController {
                 })
             }
             //processamento
+            const novaTarefa = new Tarefa(titulo, conteudo);
+
             await repository.tarefa.create({
-                data: {
-                    titulo,
-                    conteudo
-                }
+                data: novaTarefa,
             });
             //Saida
             res.status(201).send({
@@ -44,12 +43,7 @@ export class TarefasController {
         const tarefas = await repository.tarefa.findUnique({
             where: {
                 id: id,
-            },
-            include: {
-                tarefaNro,
-                titulo, 
-                conteudo,
-            } 
+            }
         })
          //Saida
          res.status(200).send({
