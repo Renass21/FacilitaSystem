@@ -1,13 +1,13 @@
 import { randomUUID } from "crypto";
 
 export class Tarefa {
-    public id: string;
-
+        public id: string;
+        public tarefaNro: string;
     constructor(
-        public tarefaNro: string,
         public titulo: string,
         public conteudo: string
     ) {
         this.id = randomUUID();
+        this.tarefaNro = randomUUID();
     }
 }
