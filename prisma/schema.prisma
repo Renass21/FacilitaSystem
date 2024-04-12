@@ -14,16 +14,17 @@ datasource db {
 }
 
 
-model Usuario {
-    id Int @id @default(autoincrement())
-    nome String @db.VarChar(30)
-    email String @db.VarChar(30)
-    senha String @db.VarChar(15)
+model Tarefa {
+    id String @id @db.Uuid
+    tarefaNro String @db.Uuid @map("tarefa_numero")
+    titulo String @db.VarChar(30)
+    conteudo String @db.VarChar(60)
+    
 
   dtCriacao DateTime @default(now()) @map("dt_criacao")
   dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
 
-  @@map("usuario")
+  @@map("tarefa")
 }
 
 
