@@ -15,10 +15,10 @@ datasource db {
 
 
 model Tarefa {
-    id String @id @db.Uuid
+    id        String @id @db.Uuid
     tarefaNro String @db.Uuid @map("tarefa_numero")
-    titulo String @db.VarChar(30)
-    conteudo String @db.VarChar(60)
+    titulo    String @db.VarChar(30) 
+    conteudo  String @db.VarChar(350)
     
 
   dtCriacao DateTime @default(now()) @map("dt_criacao")

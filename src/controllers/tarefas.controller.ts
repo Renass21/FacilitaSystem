@@ -6,7 +6,7 @@ export class TarefasController {
     public async criarTarefa(req: Request , res: Response) {
          try {
             const { id } = req.params;
-            const { titulo, conteudo } = req.body;
+            const { titulo,conteudo } = req.body;
             
             if(!titulo || !conteudo){
                 return res.status(403).send({
