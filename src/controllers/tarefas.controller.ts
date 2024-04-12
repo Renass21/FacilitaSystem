@@ -37,8 +37,7 @@ export class TarefasController {
   public async listarTarefas(req: Request, res: Response) {
     try {
         //entrada
-               const { id, tarefaNro } = req.params;
-                const { titulo, conteudo} = req.body;            
+               const { id} = req.params;           
         //processamento
         const tarefas = await repository.tarefa.findUnique({
             where: {
